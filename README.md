@@ -42,7 +42,7 @@ git clone https://github.com/input-output-hk/plutus-apps
 cd plutus-apps/
 ```
 
-8 - Checkout the latest commit
+8 - Checkout the latest stable commit (at least until [issue 195](https://github.com/input-output-hk/plutus-apps/issues/195) is resolved)
 ```console
 git checkout 7f53f18dfc788bf6aa929f47d840efa1247e11fd
 ```
