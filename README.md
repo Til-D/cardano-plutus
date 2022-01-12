@@ -1,4 +1,5 @@
-# Notes and Snippets from Plutus Pioneer Program, Cohort 3
+# Smart Contract Programming on Cardano
+Notes and Snippets from Plutus Pioneer Program, Cohort 3.
 
 # MacOS Setup for Plutus Pioneer Program
 Since there is a plethora of (at times outdated) installation guides out there, here is what worked for me running:
@@ -10,7 +11,9 @@ I mostly followed the resource from [https://docs.plutus-community.com](https://
 
 ## Setup
 1 - Install Nix
-	sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+```console
+$ sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+```
 
 
 
