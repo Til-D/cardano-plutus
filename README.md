@@ -60,7 +60,7 @@ This may take a while first time around.
 
 11 - Start plutus server
 ```console
-cd plutus-playground-client
+cd plutus-playground-server
 plutus-playground-server
 ```
 
