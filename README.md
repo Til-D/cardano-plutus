@@ -64,7 +64,7 @@ cd plutus-playground-client
 plutus-playground-server
 ```
 
-12 - Fire up a second nix-shell
+12 - Fire up a second nix-shell (i.e., in a second terminal)
 ```console
 nix-shell
 ```
