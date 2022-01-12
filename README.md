@@ -1,5 +1,5 @@
 # Smart Contract Programming on Cardano
-Notes and Snippets from Plutus Pioneer Program, Cohort 3.
+Notes and code snippets from the Plutus Pioneer Program, Cohort 3.
 
 # MacOS Setup for Plutus Pioneer Program
 Since there is a plethora of (at times outdated) installation guides out there, here is what worked for me running:
@@ -24,6 +24,8 @@ vim /etc/nix/nix.confvolume
 
 4 - Add the following lines to *nix.confvolume*:
 ```console
+build-users-group = nixbld
+experimental-features = nix-command
 substituters        = https://hydra.iohk.io https://iohk.cachix.org https://cache.nixos.org/
 trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=volume
 ```
@@ -32,23 +34,56 @@ trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
 
 6 - Clone the plutus git repo 
 ```console
-git clone https://github.com/input-output-hk/plutus.git
+git clone https://github.com/input-output-hk/plutus-apps
 ```
 
-6 - Navigate to plutus directory
+7 - Navigate to plutus directory
 ```console
-cd plutus/
+cd plutus-apps/
 ```
 
-7 - Build the Plutus Core
+8 - Checkout the latest commit
 ```console
-nix build -f default.nix plutus.haskell.packages.plutus-core.components.library
+git checkout 7f53f18dfc788bf6aa929f47d840efa1247e11fd
 ```
 
-8 - Fire up nix-shell
+9 - Build the plutus playground
+```console
+nix-build -A plutus-playground.server
+```
+
+10 - Fire up nix-shell
 ```console
 nix-shell
 ```
+This may take a while first time around.
+
+11 - Start plutus server
+```console
+cd plutus-playground-client
+plutus-playground-server
+```
+
+12 - Fire up a second nix-shell
+```console
+nix-shell
+```
+This should now be quicker since all hooks are up to date.
+
+13 - Update npm
+```console
+npm install -g npm
+```
+You may have to run this command using *sudo*.
+
+14 - Start node server
+```console
+cd plutus-playground-client
+npm run start
+```
+
+15 - That's it. Open your browser and navigate to [https://localhost:8009/](https://localhost:8009/) to compile and evaluate your hello plutus.
+
 
 # Author
 - [Tilman Dingler](https://github.com/Til-D/)
